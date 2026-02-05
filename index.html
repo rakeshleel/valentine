@@ -3,96 +3,78 @@
 <head>
 <meta charset="UTF-8">
 <title>Valentine?</title>
+
 <style>
-    body {
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: linear-gradient(135deg, #ff758c, #ff7eb3);
-        font-family: Arial, sans-serif;
-        overflow: hidden;
-    }
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    font-family: Arial, sans-serif;
+}
 
-    .box {
-        background: white;
-        padding: 30px 40px;
-        border-radius: 20px;
-        text-align: center;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
+.box {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
 
-    h1 {
-        margin-bottom: 20px;
-        color: #ff4d6d;
-    }
+button {
+    font-size: 18px;
+    padding: 10px 25px;
+    margin: 10px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
-    button {
-        font-size: 18px;
-        padding: 10px 25px;
-        margin: 10px;
-        border-radius: 30px;
-        border: none;
-        cursor: pointer;
-    }
+#yes {
+    background: #ff4d6d;
+    color: white;
+}
 
-    #yes {
-        background: #ff4d6d;
-        color: white;
-    }
+#no {
+    background: #ccc;
+}
 
-    #no {
-        background: #ccc;
-        position: absolute;
-    }
-
-    #message {
+#message {
     display: none;
     margin-top: 20px;
 }
-
 </style>
 </head>
+
 <body>
 
 <div class="box">
     <h1>Will you be my Valentine? 💖</h1>
+
     <button id="yes" onclick="yesClicked()">Yes ❤️</button>
     <button id="no">No 💔</button>
 
     <div id="message">
         <img src="love.jpg" alt="Love Image" style="width:260px;border-radius:15px;">
-        <p style="
-            margin-top:12px;
-            font-size:24px;
-            font-weight:bold;
-            color:#ff4d6d;
-        ">
-            Buggo loves you! 🥹💖
-        </p>
     </div>
 </div>
 
-
 <script>
-    const noBtn = document.getElementById("no");
+let yesSize = 18; // starting size in px
 
-    noBtn.addEventListener("mouseover", () => {
-        const x = Math.random() * (window.innerWidth - 100);
-        const y = Math.random() * (window.innerHeight - 50);
-        noBtn.style.left = x + "px";
-        noBtn.style.top = y + "px";
-    });
+document.getElementById("no").addEventListener("click", () => {
+    yesSize += 10;
+    const yesBtn = document.getElementById("yes");
+    yesBtn.style.fontSize = yesSize + "px";
+    yesBtn.style.padding = "15px 35px";
+});
 
-    function yesClicked() {
-        document.getElementById("message").style.display = "block";
-    }
+function yesClicked() {
+    document.getElementById("message").style.display = "block";
+}
 </script>
 
 </body>
 </html>
-
-
-
-
-
